@@ -1,0 +1,13 @@
+addEventListener('touchmove', function(e){
+	e.preventDefault();
+	var touch = e.touches[0];
+	var posX = touch.pageX;
+	var posXpercentage = (posX*100)/window.innerWidth;
+	$("#bar").css({"left":posX+"px","margin":"0px","margin-left":"-15%","margin-top":"41%"}); 
+
+
+	muzzley.send('posX', {val: posXpercentage}, function (err, response) {
+		log(JSON.stringify(arguments));
+	});
+    
+}, false);
